@@ -55,12 +55,12 @@ const Header = () => {
       <div className={`py-1 ${isDark ? "bg-background  transition-colors": " bg-accent-dark"} `}>
         <div className={`container mx-auto px-4 flex justify-between items-center text-sm  ${isDark ? "text-text": "text-background-light"} `}>
           <div className="flex items-center space-x-4">
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-2" />
+            <div className="flex items-start">
+              <Clock className="w-6 h-6 mr-2" />
               <span>Mon-Fri: 9AM-6PM</span>
             </div>
-            <div className="flex items-center">
-              <Phone className="w-4 h-4 mr-2" />
+            <div className="flex items-start">
+              <Phone className="w-6 h-6 mr-2" />
               <span>Support: support@myizenergy.com</span>
             </div>
           </div>
