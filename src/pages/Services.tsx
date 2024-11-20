@@ -1,6 +1,6 @@
 
 // import { Package, Wrench, RefreshCcw, WrenchIcon, Headphones } from 'lucide-react';
-import { useTheme } from '../stores/themeStore';
+import { useTheme } from '../lib/themeStore';
 import clsx from 'clsx';
 import Marquee from 'react-fast-marquee';
 

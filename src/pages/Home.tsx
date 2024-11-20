@@ -1,11 +1,8 @@
 
 import {  ShieldAlertIcon, DollarSignIcon, MessageCircleCode } from 'lucide-react';
-// ArrowRight, Battery, Sun, Zap,
 import { Package, Wrench, RefreshCcw, WrenchIcon, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../stores/themeStore';
-// import ChangingBackground from '../components/ChangingBackground';
-// import Academy from './Academy';
+import { useTheme } from '../lib/themeStore';
 import Counter from '../components/Counter';
 import Marquee from 'react-fast-marquee';
 
@@ -89,48 +86,15 @@ const Home = () => {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      {/* <ChangingBackground>
-        <div className="container mx-auto px-4 h-screen flex items-center">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-text">
-              Sustainable energy drives global progress
-            </h1>
-            <p className="text-xl mb-8 text-text-dark">
-              Discover sustainable energy solutions that help you save money while saving the planet.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/products"
-                className="bg-primary hover:bg-primary-dark text-text px-8 py-3 rounded-lg font-medium flex items-center transition-colors"
-              >
-                Shop Now <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="bg-accent hover:bg-accent-dark text-background px-8 py-3 rounded-lg font-medium transition-colors"
-              >
-                Get a Quote
-              </Link>
-            </div>
-          </div>
-        </div>
-      </ChangingBackground> */}
-
-
-     
+    <>
       <section className={`${isDark ? 'bg-primary-dark text-white' : 'bg-white' } p-2`}>
         <div className='container mx-auto pt-24'>
-
           <p  className={`my-5 text-center md:text-left  ${isDark ? 'text-accent-light' : 'bg-white'}`}>We are all about Solar & renewable energy</p>
-
 
           <div className='md:flex md:justify-between'>
             <div className='md:max-w-[600px]'>
               <h1 className='text-2xl md:text-5xl md:max-w-[600px]'>Discover our range of solar solutions, designed to brighten your world</h1>
             </div>
-
 
             <div className='flex justify-end items-end'>
              <Link to={"/products"} className='md:p-4 p-2 border-2 rounded-full border-accent-light hover:text-background-light hover:bg-accent-light transition-all duration-1000 text-2xl'>
@@ -140,7 +104,7 @@ const Home = () => {
           </div>
 
           <div className='h-[400px] w-[100%] my-5 md:my-10 rounded-t-xl'>
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1920" alt=""  className='h-[400px] w-full rounded-t-xl'/>
+            <img src="/izenergylogoFP_page-0008.jpg" alt=""  className='h-[400px] w-full rounded-t-xl'/>
           </div>
 
 
@@ -148,35 +112,35 @@ const Home = () => {
           <h1 className='text-2xl md:text-5xl text-center md:px-28'>Our team of experts bring to your home and office a customer-centered solution</h1>
         </div>
       </section>
+
       <div className="my-16">
-            <Marquee
-              className=""
-              speed={70}
-              pauseOnHover
-            >
-              {imageUrls?.map((image: any, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className=""
-                  >
-                    <img
-                      loading="lazy"
-                      src={image?.url || ""}
-                      alt="Images"
-                      width={400}
-                      height={400}
-                      className="w-[200px] md:w-[400px] h-[200px] md:h-[300px] mx-5 object-cover px-1 rounded-3xl"
-                    />
-                  </div>
-                );
-              })}
-            </Marquee>
+        <Marquee
+          className=""
+          speed={70}
+          pauseOnHover
+        >
+          {imageUrls?.map((image: any, index: number) => {
+            return (
+              <div
+                key={index}
+                className=""
+              >
+                <img
+                  loading="lazy"
+                  src={image?.url || ""}
+                  alt="Images"
+                  width={400}
+                  height={400}
+                  className="w-[200px] md:w-[400px] h-[200px] md:h-[300px] mx-5 object-cover px-1 rounded-3xl"
+                />
+              </div>
+            );
+          })}
+        </Marquee>
       </div>
 
       {/* Features Section */}
       <section className={`py-20`}>
-      
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div className={`p-8 rounded-lg ${
@@ -218,7 +182,7 @@ const Home = () => {
       </section>
 
       {/* counter */}
-      <section className={`${isDark ? 'bg-background-light text-secondary-light' : 'bg-secondary' }  p-10  `}>
+      <section className={`${isDark ? 'bg-background-light text-secondary-light' : 'bg-secondary' }  p-10`}>
         <div className='container mx-auto md:flex justify-around items-center'>
           <div className={`md:border-r-2 ${isDark ? 'border-secondary' : 'border-background-light' } text-center md:w-1/4 min-[300px]:w-full md:m-0 min-[300px]:my-10 px-5`}>
             <h2 className='text-5xl font-semibold '>
@@ -273,10 +237,8 @@ const Home = () => {
             </p>
           </div>  
         </div>
-
       </section>
           
-
       <section>
         <div className="container mx-auto px-4 py-16">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -337,9 +299,7 @@ const Home = () => {
             </div>
         </div>
       </section>
-      
-      {/* <Academy/> */}
-    </div>
+    </>
   );
 };
 

@@ -11,14 +11,21 @@ import {
   Moon
 } from 'lucide-react';
 // import { useCart } from '../stores/cartSlice';
-import { useTheme } from '../stores/themeStore';
+import { useTheme } from '../lib/themeStore';
 import { Popup } from './PopUp';
+import Authentification from './Authentification';
+import { useSelector } from 'react-redux';
+import { RootState } from '../stores/store';
 
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [signIn, setSignIn] = useState(false)
+  // const dispatch = useDispatch<AppDispatch>(); 
+  const { data } = useSelector((state: RootState) => state.auth); 
+  console.log(data)
+  
   // const { items, } = useCart();
 
   const { isDark, toggleTheme } = useTheme();
@@ -225,7 +232,7 @@ const Header = () => {
 
       
     </header>
-    {signIn && <Popup onClose={handleclose} value={<LoginForm/>}/>}
+    {signIn && <Popup onClose={handleclose} value={<Authentification onClose={handleclose}/>}/>}
     </>
   );
 };
@@ -234,113 +241,6 @@ export default Header;
 
 
 
-const LoginForm = () => {
-  // State for form inputs
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [error, setError] = useState("");
-  const [form, setForm] = useState("Login")
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle form submission
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    setError(""); // Reset error message
-
-    // Basic validation
-    if (!email || !password) {
-      setError("Please fill in both fields.");
-      return;
-    }
-
-    // Simulate form submission
-    setIsSubmitting(true);
-
-    // Here you can add API request logic
-    setTimeout(() => {
-      // Simulate a successful login
-      setIsSubmitting(false);
-      console.log("Login successful", { email, password });
-      // Redirect user or handle after login logic here
-    }, 1500);
-  };
-
-  return (
-    <div className="flex justify-center items-center bg-gray-100">
-      <div className="bg-white px-8 pb-6 rounded-lg text-black shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-semibold mb-6 text-background-light text-start">{form === "Login" ? "Login" : "Register"}</h2>
-
-        {error && <div className="bg-red-200 text-red-600 p-2 mb-4 text-sm">{error}</div>}
-
-        <form onSubmit={handleSubmit}>
-          {form !== "Login" && <div className="mb-4">
-            <label htmlFor="name" className="block text-start text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
-              required
-              className="w-full mt-2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>}
-
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-start text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-              className="w-full mt-2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-start text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              required
-              className="w-full mt-2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className={`w-full py-2 text-white bg-blue-500 rounded-md ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'}`}
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Logging in..." : "Log In"}
-          </button>
-        </form>
-
-        { form === "Login" 
-          ? 
-            <p className="mt-4 text-center text-sm text-gray-600">
-              Don't have an account? <span onClick={()=> setForm("Register")} className="text-blue-500 cursor-pointer">Sign up</span>
-            </p> 
-          : 
-            <p className="mt-4 text-center text-sm text-gray-600">
-              Already have an account? <span onClick={()=> setForm("Login")} className="text-blue-500 cursor-pointer">Sign in</span>
-            </p> 
-        }
-      </div>
-    </div>
-  );
-};
 
 

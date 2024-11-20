@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookOpen, Video, HelpCircle, GraduationCap, Clock, Users, Award } from 'lucide-react';
-import { useTheme } from '../stores/themeStore';
+import { useTheme } from '../lib/themeStore';
 
 const courses = [
   {

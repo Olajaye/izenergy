@@ -1,6 +1,6 @@
 import { Battery, Sun, Zap, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../stores/themeStore';
+import { useTheme } from '../lib/themeStore';
 
 const categories = [
   {

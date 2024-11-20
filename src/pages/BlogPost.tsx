@@ -1,4 +1,4 @@
-import { useTheme } from "../stores/themeStore";
+import { useTheme } from "../lib/themeStore";
 
 
 const BlogPost = () => {

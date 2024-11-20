@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { useTheme } from '../stores/themeStore';
-import { useNewsletter } from '../stores/newsletterStore';
+import { useTheme } from '../lib/themeStore';
+import { useNewsletter } from '../lib/newsletterStore';
 
 const NewsletterPopup = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom'
 import { Battery, Sun, Zap, Wrench } from 'lucide-react';
 
-import { useTheme } from '../stores/themeStore';
+import { useTheme } from '../lib/themeStore';
 
 const categories = [
   {
